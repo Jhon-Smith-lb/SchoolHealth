@@ -1,0 +1,64 @@
+{% extends "Base.html" %}
+{% block content %}
+    <div class="col-12">
+        <div class="col-middle">
+          <div class="text-center">
+            <h1 class="error-number" style="color: black;">警告</h1>
+              <h2 class="color_black">{{ error_msg }}</h2>
+              <p class="color_black">出入请联系管理人员</p>
+            <div class="col-12">
+                    <div class="row">
+                        <div class="col-12 mb-3">
+                            <div class="heading_view">
+                                <h2>您的信息</h2>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="contact-info">
+
+                                <ul class="info">
+                                    <li>
+                                        <div class="icon ion-ios-location"></div>
+                                        <div class="content">
+                                            <p>
+                                                学号：{{ student.sno }}
+                                            </p>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="icon ion-android-call"></div>
+                                        <div class="content">
+                                            <p>
+                                                专业班级：微机1807
+                                            </p>
+
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="icon ion-ios-email"></div>
+                                        <div class="content">
+                                            <p>
+                                                姓名：{{ student.name }}
+                                            </p>
+
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="icon ion-ios-email"></div>
+                                        <div class="content">
+                                            <p>
+                                                寝室：{{ student.build_id }} {{ student.room }}
+                                            </p>
+
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+      </div>
+{% endblock content %}

@@ -1,0 +1,111 @@
+﻿{% extends "Base.html" %}
+{% block content %}
+
+<div class="content_wrapper">
+    <div class="contact_gettuch">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 mb-30">
+                    <form id="contact" method="post" action="{% url 'in_out' build_id %}">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-12 mb-3">
+                                <div class="heading_view">
+                                    <h1>学生出入登记表</h1>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <!-- 出或入 -->
+                                <p class="fw-600">出行或进入</p>
+                                <label class="custom-control custom-radio">
+                                    <input id="radio1" name="in_out" type="radio" class="custom-control-input" value="0" checked>
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">出行</span>
+                                </label>
+                                <br/>
+                                <label class="custom-control custom-radio">
+                                    <input id="radio2" name="in_out" type="radio" class="custom-control-input" value="1">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">进入</span>
+                                </label>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <input class="form-control" id="sub" type="number" min="35" max="42" step="0.1" name="temp" placeholder="体温"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <textarea class="form-control" id="message" rows="7" name="reason"
+                                        placeholder="出/入事由(选填)"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn-text" type="submit" id="submit" name="button">
+                                    提交
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-12 mb-3">
+                            <div class="heading_view">
+                                <h2>请确认您的信息</h2>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="contact-info">
+
+                                <ul class="info">
+                                    <li>
+                                        <div class="icon ion-ios-location"></div>
+                                        <div class="content">
+                                            <p>
+                                                学号：{{ student.sno }}
+                                            </p>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="icon ion-android-call"></div>
+                                        <div class="content">
+                                            <p>
+                                                专业班级：微机1807
+                                            </p>
+
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="icon ion-ios-email"></div>
+                                        <div class="content">
+                                            <p>
+                                                姓名：{{ student.name }}
+                                            </p>
+
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="icon ion-ios-email"></div>
+                                        <div class="content">
+                                            <p>
+                                                寝室：{{ student.build_id }} {{ student.room }}
+                                            </p>
+
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
